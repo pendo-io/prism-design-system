@@ -3,17 +3,20 @@
         <img alt="Vue logo" src="./assets/logo.png" />
         <HelloWorld msg="Welcome to Your Vue.js App" />
         <pendo-button label="Click me" />
+        <my-markdown />
     </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
+import MyMarkdown from './components/MyMarkdown.mdx';
 import { PendoButton } from '@pendo/components';
 
 export default {
     name: 'App',
     components: {
         HelloWorld,
+        MyMarkdown,
         PendoButton
     }
 };
