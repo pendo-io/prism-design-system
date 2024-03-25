@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@pendo/components": "^13.50.1",
     "core-js": "^3.8.3",
     "vue": "^2.6.14"
   },
