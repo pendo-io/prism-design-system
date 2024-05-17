@@ -1,28 +1,19 @@
 import { ref } from 'vue';
 import MyButton from './MyButton.vue';
-import PWrap from './PWrap.vue';
 import { PendoButton } from '@pendo/components';
 
 # Component Library Example
 
-You cannot have _changing_ local state in an MDX file. Although you can listen for events with `onClick={() => {}}` syntax, and even bind variables dynamically with `prop={}`, the variable bindings are not reactive in MDX.
+Simple components and reactivity are possible in MDX files, but the syntax is different from single-file Vue components.
+
 Consider the following example:
 
-<PendoButton>{() => 'hello world'}</PendoButton>
+export const count = ref(0);
+
+<PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />
 
 ---
 
-<PWrap>
-    {() => {
-        let count = ref(0);
-        return (
-            <PendoButton onClick={() => count.value++}>
-                {() => count.value}
-            </PendoButton>
-        );
-    }}
-</PWrap>
-
-If you want to demonstrate a functional component like the following button, you'd need to create a Vue component and import it into the MDX file.
+If you want to demonstrate more complicated functionality, you can create a Vue component and import it into the MDX file.
 
 <MyButton />
