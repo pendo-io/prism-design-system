@@ -1,3 +1,4 @@
+import { ref } from 'vue';
 import MyButton from './MyButton.vue';
 import PWrap from './PWrap.vue';
 import { PendoButton } from '@pendo/components';
@@ -13,8 +14,12 @@ Consider the following example:
 
 <PWrap>
     {() => {
-        let count = 0;
-        return <PendoButton label={count} onClick={() => alert('hi')} />;
+        let count = ref(0);
+        return (
+            <PendoButton onClick={() => count.value++}>
+                {() => count.value}
+            </PendoButton>
+        );
     }}
 </PWrap>
 
