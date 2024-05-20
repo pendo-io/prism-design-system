@@ -4,8 +4,8 @@
         <nav>
             Sidebar Navigation
             <ul>
-                <li>Overview</li>
-                <li>Elements</li>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/button">Button</router-link></li>
                 <li>Guidelines</li>
                 <li>Components</li>
                 <li>Patterns</li>
