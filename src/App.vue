@@ -16,12 +16,29 @@
         <main>
             <router-view class="content" />
         </main>
-        <footer><em>Page Footer</em></footer>
+        <footer>
+            <p><em>Page Footer</em></p>
+            <p>
+                Documentation v{{ siteVersion }} &ensp; | &ensp;
+                <a href="https://github.com/pendo-io/components" target="_blank"
+                    >Component Library</a
+                >
+                v{{ libVersion }}
+            </p>
+        </footer>
     </div>
 </template>
 
 <script>
-export default { name: 'App' };
+export default {
+    name: 'App',
+    data() {
+        return {
+            siteVersion: require('../package.json').version,
+            libVersion: require('@pendo/components/package.json').version
+        };
+    }
+};
 </script>
 
 <style scoped>
@@ -74,5 +91,17 @@ footer {
     background-color: #2c3e50;
     color: white;
     padding: 10px;
+}
+
+header a,
+nav a,
+footer a {
+    color: white;
+}
+
+header a:focus,
+nav a:focus,
+footer a:focus {
+    color: #b8e0ea;
 }
 </style>
