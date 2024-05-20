@@ -12,21 +12,14 @@
             </ul>
         </nav>
         <main>
-            <MyMarkdown class="content" />
+            <router-view class="content" />
         </main>
         <footer><em>Page Footer</em></footer>
     </div>
 </template>
 
 <script>
-import MyMarkdown from './components/MyMarkdown.mdx';
-
-export default {
-    name: 'App',
-    components: {
-        MyMarkdown
-    }
-};
+export default { name: 'App' };
 </script>
 
 <style scoped>
