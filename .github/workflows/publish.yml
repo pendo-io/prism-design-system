@@ -27,6 +27,10 @@ jobs:
               uses: actions/configure-pages@v4
             - name: Setup Node
               uses: actions/setup-node@v4
+            - name: Prepare npmrc
+              run: envsubst < ci.npmrc > .npmrc
+              env:
+                  ARTIFACTORY_TOKEN: '${{ secrets.ARTIFACTORY_TOKEN }}'
             - name: Install dependencies
               uses: bahmutov/npm-install@v1
             - name: Build project
