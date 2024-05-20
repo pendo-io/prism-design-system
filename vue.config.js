@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
+    publicPath: '/prism-design-system/',
     transpileDependencies: true,
     pages: {
         index: {
