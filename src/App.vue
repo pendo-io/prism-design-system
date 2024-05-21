@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '@pendo/components/lib/es/components.css';
 
 #app {
@@ -97,11 +97,9 @@ header a,
 nav a,
 footer a {
     color: white;
-}
 
-header a:focus,
-nav a:focus,
-footer a:focus {
-    color: #b8e0ea;
+    &:focus {
+        color: #b8e0ea;
+    }
 }
 </style>
