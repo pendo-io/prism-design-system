@@ -1,17 +1,33 @@
 // https://webpack.js.org/guides/dependency-management/#require-context
 const requireComponent = require.context('@/content', true, /\.mdx$/);
 
-export default requireComponent.keys().map((fileName) => {
-    const path = fileName.replace(/\.\w+$/, '');
+const toVueRouterPath = (str) =>
+    str
+        .replace(/\.\w+$/, '')
+        .replace('index', '')
+        .replace('.', '')
+        .replace(/\/$/, '');
 
-    // Underscore to colon is for vue router path params.
-    // Currently unused because we're only pulling MDX files,
-    // but could be useful in the future.
-    const toVueRouterPath = (str) =>
-        str.replace('_', ':').replace('index', '').replace('.', '');
+const routes = [];
 
-    return {
-        path: toVueRouterPath(path),
-        component: requireComponent(fileName).default
+for (const fileName of requireComponent.keys().sort()) {
+    const path = toVueRouterPath(fileName);
+    const contentModule = requireComponent(fileName);
+    const newRoute = {
+        path,
+        component: contentModule.default
     };
-});
+
+    const parentPath = path.replace(/\/[^/]+$/, '');
+    const parentRoute = routes.find((route) => route.path === parentPath);
+
+    if (contentModule.IS_TAB && parentRoute) {
+        newRoute.path = path.replace(`${parentPath}/`, '');
+        parentRoute.children = parentRoute.children || [];
+        parentRoute.children.push(newRoute);
+    } else {
+        routes.push(newRoute);
+    }
+}
+
+export default routes;
