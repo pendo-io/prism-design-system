@@ -37,6 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/_colors.scss';
+
 nav {
     background-color: #17044a;
     color: white;
@@ -64,6 +66,6 @@ li {
 :deep(.pendo-input__field) {
     background-color: #432277;
     border-color: #4b3478;
-    color: #9a9ca5;
+    color: $color-gray-60;
 }
 </style>
