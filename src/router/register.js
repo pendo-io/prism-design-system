@@ -1,5 +1,5 @@
 // https://webpack.js.org/guides/dependency-management/#require-context
-const requireComponent = require.context('@/pages', true, /\.mdx$/);
+const requireComponent = require.context('@/content', true, /\.mdx$/);
 
 export default requireComponent.keys().map((fileName) => {
     const path = fileName.replace(/\.\w+$/, '');

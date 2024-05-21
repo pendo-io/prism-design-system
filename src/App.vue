@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@pendo/components/lib/es/components.css';
 @import '@/styles/_colors.scss';
 
 #app {
@@ -39,21 +38,6 @@ export default {
 }
 
 main {
-    background-color: #ecf0f1;
-    padding: 10px;
-}
-
-@media (min-width: 66rem) {
-    .content {
-        padding-left: calc(10% + 1.5rem);
-        padding-right: 2rem;
-    }
-}
-
-@media (min-width: 99rem) {
-    .content {
-        max-width: 70rem;
-        padding-left: 200px;
-    }
+    padding: 120px 80px;
 }
 </style>

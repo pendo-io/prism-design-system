@@ -1,3 +1,5 @@
+@import '@pendo/components/lib/es/components.css';
+
 html,
 body {
     margin: 0;
@@ -6,4 +8,13 @@ body {
     font-family: Inter, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Sora, Helvetica, Arial, sans-serif;
 }
