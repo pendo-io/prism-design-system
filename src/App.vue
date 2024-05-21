@@ -1,18 +1,6 @@
 <template>
     <div id="app">
-        <header><strong>Page Header</strong></header>
-        <nav>
-            Sidebar Navigation
-            <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li>
-                    <router-link to="/components/button">Button</router-link>
-                </li>
-                <li>Guidelines</li>
-                <li>Components</li>
-                <li>Patterns</li>
-            </ul>
-        </nav>
+        <sidebar-nav class="nav" />
         <main>
             <router-view class="content" />
         </main>
@@ -30,8 +18,13 @@
 </template>
 
 <script>
+import SidebarNav from './components/SidebarNav.vue';
+
 export default {
     name: 'App',
+    components: {
+        SidebarNav
+    },
     data() {
         return {
             siteVersion: require('../package.json').version,
@@ -47,23 +40,13 @@ export default {
 #app {
     height: 100vh;
     display: grid;
-    grid-template: auto 1fr auto / auto 1fr;
+    grid-template: auto 1fr auto / 300px 1fr;
     grid-template-areas: 'header header' 'nav main' 'footer footer';
     color: #2c3e50;
 }
 
-header {
-    grid-area: header;
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px;
-}
-
-nav {
+.nav {
     grid-area: nav;
-    background-color: #44596e;
-    color: white;
-    padding: 10px;
 }
 
 main {
@@ -93,8 +76,6 @@ footer {
     padding: 10px;
 }
 
-header a,
-nav a,
 footer a {
     color: white;
 
