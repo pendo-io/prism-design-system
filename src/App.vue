@@ -1,19 +1,10 @@
 <template>
     <div id="app">
         <sidebar-nav class="nav" />
+        <img src="@/assets/separator.svg" alt="separator" />
         <main>
             <router-view class="content" />
         </main>
-        <footer>
-            <p><em>Page Footer</em></p>
-            <p>
-                Documentation v{{ siteVersion }} &ensp; | &ensp;
-                <a href="https://github.com/pendo-io/components" target="_blank"
-                    >Component Library</a
-                >
-                v{{ libVersion }}
-            </p>
-        </footer>
     </div>
 </template>
 
@@ -24,12 +15,6 @@ export default {
     name: 'App',
     components: {
         SidebarNav
-    },
-    data() {
-        return {
-            siteVersion: require('../package.json').version,
-            libVersion: require('@pendo/components/package.json').version
-        };
     }
 };
 </script>
@@ -40,17 +25,12 @@ export default {
 #app {
     height: 100vh;
     display: grid;
-    grid-template: auto 1fr auto / 300px 1fr;
-    grid-template-areas: 'header header' 'nav main' 'footer footer';
+    grid-template-columns: 300px min-content 1fr;
+    grid-template-rows: minmax(0, 1fr);
     color: #2c3e50;
 }
 
-.nav {
-    grid-area: nav;
-}
-
 main {
-    grid-area: main;
     background-color: #ecf0f1;
     padding: 10px;
 }
@@ -66,21 +46,6 @@ main {
     .content {
         max-width: 70rem;
         padding-left: 200px;
-    }
-}
-
-footer {
-    grid-area: footer;
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px;
-}
-
-footer a {
-    color: white;
-
-    &:focus {
-        color: #b8e0ea;
     }
 }
 </style>

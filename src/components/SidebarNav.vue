@@ -21,6 +21,13 @@
         <ul>
             <li>For Designers</li>
         </ul>
+        <p>Documentation v{{ siteVersion }}</p>
+        <p>
+            <a href="https://github.com/pendo-io/components" target="_blank"
+                >Component Library</a
+            >
+            v{{ libVersion }}
+        </p>
     </nav>
 </template>
 
@@ -32,6 +39,12 @@ export default {
     components: {
         PendoIcon,
         PendoInput
+    },
+    data() {
+        return {
+            siteVersion: require('@/../package.json').version,
+            libVersion: require('@pendo/components/package.json').version
+        };
     }
 };
 </script>
@@ -57,6 +70,14 @@ ul {
 li {
     margin: 22px 0;
     font-weight: 600;
+}
+
+a {
+    color: white;
+
+    &:focus {
+        color: $color-gray-20;
+    }
 }
 
 .search {
