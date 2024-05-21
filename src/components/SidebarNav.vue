@@ -1,7 +1,13 @@
 <template>
     <nav>
         <img src="@/assets/logo.svg" alt="Pendo Prism Design System" />
-        <div class="search" />
+        <div class="search">
+            <pendo-input placeholder="Search">
+                <template #prefix>
+                    <pendo-icon type="search" size="14" />
+                </template>
+            </pendo-input>
+        </div>
         <hr />
         <ul>
             <li>Release Notes</li>
@@ -18,10 +24,46 @@
     </nav>
 </template>
 
+<script>
+import { PendoInput, PendoIcon } from '@pendo/components';
+
+export default {
+    name: 'SidebarNav',
+    components: {
+        PendoIcon,
+        PendoInput
+    }
+};
+</script>
+
 <style lang="scss" scoped>
 nav {
     background-color: #17044a;
     color: white;
     padding: 32px;
+}
+
+hr {
+    border: 1px solid #6e6292;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 22px 0;
+    font-weight: 600;
+}
+
+.search {
+    margin: 18px 0;
+}
+
+:deep(.pendo-input__field) {
+    background-color: #432277;
+    border-color: #4b3478;
+    color: #9a9ca5;
 }
 </style>
