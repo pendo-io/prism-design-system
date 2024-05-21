@@ -1,19 +1,45 @@
 import { ref } from 'vue';
-import MyButton from '@/components/MyButton.vue';
 import { PendoButton } from '@pendo/components';
 
-# Component Library Example
+# Buttons
 
-Simple components and reactivity are possible in MDX files, but the syntax is different from single-file Vue components.
+Use buttons to enable the user to identify and trigger an action on the page.
 
-Consider the following example:
+> **TODO**: Add the external link buttons, the Pendo Tab sections, etc.
+
+## Overview
+
+A button is an essential UI component in most designs, used when a user might need to take the following actions:
+
+-   Submitting content, such as with a form.
+-   Triggering an element to appear on the page, such as a modal or a drawer.
+
+## Button types
+
+<PendoButton label="Button" type="primary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="secondary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="tertiary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="link" />
+&ensp;&ensp;
+<PendoButton label="Button" type="danger" />
+
+## Primary button
+
+Primary buttons are used to highlight the most important, relevant, or encouraged action. There should be only one primary button per button group.
+
+Use Primary buttons for:
+
+-   Calls to action that prompt users to do something you want them to do (such as Sign up).
+-   Constructive actions (such as Submit).
+-   Confirmation (such as Yes, Delete).
+
+### Examples:
+
+The following button is an example of reactivity in MDX, not strictly related to design documentation.
 
 export const count = ref(0);
 
 <PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />
-
----
-
-If you want to demonstrate more complicated functionality, you can create a Vue component and import it into the MDX file.
-
-<MyButton />

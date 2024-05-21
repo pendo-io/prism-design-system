@@ -39,5 +39,10 @@ export default {
 
 main {
     padding: 120px 80px;
+    overflow: scroll;
+}
+
+[mdxtype='MDXLayout'] {
+    max-width: 730px;
 }
 </style>
