@@ -13,7 +13,25 @@
             <li>Release Notes</li>
             <li>About Prism</li>
             <li><router-link to="/">Getting Started</router-link></li>
-            <li>Components</li>
+            <li>
+                <span class="trigger">
+                    <pendo-icon type="chevron-down" size="16" />
+                    <span>Components</span>
+                </span>
+                <ul>
+                    <li>
+                        <router-link to="/components/button"
+                            >Button</router-link
+                        >
+                    </li>
+                    <li>
+                        <router-link to="/components/input">Input</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/components/icon">Icon</router-link>
+                    </li>
+                </ul>
+            </li>
             <li>Tokens</li>
             <li>Patterns</li>
         </ul>
@@ -69,14 +87,40 @@ ul {
 
 li {
     margin: 22px 0;
+    font-size: 16px;
     font-weight: 600;
+
+    ul {
+        padding-left: 24px;
+
+        li {
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        a {
+            color: #c6c1db;
+        }
+    }
 }
 
 a {
     color: white;
+    text-decoration: none;
 
-    &:focus {
-        color: $color-gray-20;
+    &.router-link-exact-active {
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .pendo-icon {
+        display: inline-block;
     }
 }
 
