@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <sidebar-nav class="nav" />
-        <img src="@/assets/separator.svg" alt="separator" />
+        <div class="separator">
+            <img src="@/assets/separator.svg" alt="separator" />
+        </div>
         <main>
             <router-view class="content" />
         </main>
@@ -21,13 +23,19 @@ export default {
 
 <style lang="scss" scoped>
 @import '@pendo/components/lib/es/components.css';
+@import '@/styles/_colors.scss';
 
 #app {
     height: 100vh;
     display: grid;
-    grid-template-columns: 300px min-content 1fr;
+    grid-template-columns: 300px 28px 1fr;
     grid-template-rows: minmax(0, 1fr);
     color: #2c3e50;
+}
+
+.separator {
+    overflow: hidden;
+    background-color: $color-pink-100;
 }
 
 main {
