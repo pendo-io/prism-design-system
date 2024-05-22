@@ -5,6 +5,12 @@
             <img src="@/assets/separator.svg" alt="separator" />
         </div>
         <main>
+            <div class="boop">
+                <img src="@/assets/star-1.svg" alt="star" />
+                <img src="@/assets/star-2.svg" alt="star" />
+                <img src="@/assets/star-3.svg" alt="star" />
+                <img src="@/assets/star-3.svg" alt="star" />
+            </div>
             <router-view class="content" />
         </main>
     </div>
@@ -44,5 +50,41 @@ main {
 
 [mdxtype='MDXLayout'] {
     max-width: 730px;
+}
+
+.boop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+
+    img {
+        filter: blur(6px);
+    }
+
+    img:nth-child(1) {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    img:nth-child(2) {
+        position: absolute;
+        top: 40px;
+        right: 105px;
+    }
+
+    img:nth-child(3) {
+        position: absolute;
+        top: 122px;
+        right: 69px;
+    }
+
+    img:nth-child(4) {
+        position: absolute;
+        top: 156px;
+        right: 126px;
+    }
 }
 </style>
