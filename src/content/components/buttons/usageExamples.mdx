@@ -1,3 +1,12 @@
 export const IS_TAB = true;
 
+import { ref } from 'vue';
+import { PendoButton } from '@pendo/components';
+
 ## Usage Examples
+
+The following button is an example of reactivity in MDX, not strictly related to design documentation.
+
+export const count = ref(0);
+
+<PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />

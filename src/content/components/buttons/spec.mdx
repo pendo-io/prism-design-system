@@ -1,4 +1,3 @@
-import { ref } from 'vue';
 import { PendoButton } from '@pendo/components';
 
 export const IS_TAB = true;
@@ -22,7 +21,7 @@ A button is an essential UI component in most designs, used when a user might ne
 &ensp;&ensp;
 <PendoButton label="Button" type="danger" />
 
-## Primary button
+### Primary button
 
 Primary buttons are used to highlight the most important, relevant, or encouraged action. There should be only one primary button per button group.
 
@@ -32,10 +31,97 @@ Use Primary buttons for:
 -   Constructive actions (such as Submit).
 -   Confirmation (such as Yes, Delete).
 
-### Examples:
+#### Examples:
 
-The following button is an example of reactivity in MDX, not strictly related to design documentation.
+<PendoButton label="Save Changes" type="primary" />
+&ensp;&ensp;
+<PendoButton label="Manage Features In-App" type="primary" />
 
-export const count = ref(0);
+**TODO**: Image examples
 
-<PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />
+### Secondary button
+
+Secondary buttons are less critical to a process than the primary action. "Cancel", for example, is a typical secondary button. They can be used when you need to less prominence than a primary button.
+
+Use Secondary buttons for:
+
+-   Choices made less frequently by users (such as Exit).
+-   Dismiss actions (such as Cancel).
+-   When actions need less prominence because they arent critical to the purpose, i.e. Share
+
+#### Examples:
+
+<PendoButton label="Cancel" type="secondary" />
+&ensp;&ensp;
+<PendoButton label="Skip" type="secondary" />
+&ensp;&ensp;
+<PendoButton label="Share" type="secondary" />
+
+### Teriary button
+
+Tertiary buttons are for actions that are miscellaneous actions or actions that are less critical to the user journey than standard buttons.
+
+Use Tertiary Buttons:
+
+-   When standard buttons would be too heavy, distracting, or visually unappealing in the space.
+-   In right hand CTA’s of a table
+
+#### Examples:
+
+<PendoButton label="Add More" type="tertiary" />
+&ensp;&ensp;
+<PendoButton label="Cancel" type="tertiary" />
+
+### Tertiary (Link Style) Button
+
+Tertiary link buttons are the same as the Tertiary, but are differentiated as links to lift the prominence on the page.
+
+Use Tertiary Link Buttons:
+
+-   When standard buttons would be too heavy, distracting, or visually unappealing in the space.
+-   Highlighting the interactivity of an option relative to normal text (such as + 3 more rules)
+-   Placing next to a primary action for less prominence
+
+#### Examples:
+
+<PendoButton label="+ 3 More" type="link" />
+&ensp;&ensp;
+<PendoButton label="How do I Identify Core Events?" type="link" />
+&ensp;&ensp;
+<PendoButton label="Manage in App" type="link" />
+
+### Destructive Button
+
+Use when you need to increase attention and introduce friction. Destructive actions encourage the user to pause before acting. Use destructive buttons.
+
+It’s best practice to follow a destructive action with a confirmation (using a Primary button) to avoid irreversible actions.
+
+Use Destructive Buttons:
+
+-   For Primary actions that are critical, such as removing access, or difficult to reverse, such as deleting an object.
+
+#### Examples:
+
+<PendoButton label="Delete Page" type="danger" />
+&ensp;&ensp;
+<PendoButton label="Exit Without Saving" type="danger" />
+
+## Button Function
+
+### Standard Button
+
+### Split Action Button
+
+## Button States
+
+### Focus State
+
+### Focus Examples
+
+#### Standard Button
+
+#### Split Button
+
+## Button Sizes
+
+## UI Mode
