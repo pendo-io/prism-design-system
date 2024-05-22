@@ -50,6 +50,7 @@ function createRoute(key, value) {
 
     for (const route of routes) {
         if (route.meta?.tab) {
+            route.meta.prop = route.path;
             children.push(route);
         } else {
             route.path = `${key}/${route.path}`;
