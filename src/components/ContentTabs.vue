@@ -1,7 +1,8 @@
 <template>
-    <pendo-tabs v-model="currentTab" :tabs="tabs">
+    <pendo-tabs v-if="tabs.length" v-model="currentTab" :tabs="tabs">
         <router-view />
     </pendo-tabs>
+    <router-view v-else />
 </template>
 
 <script>
@@ -26,10 +27,8 @@ export default {
     },
     computed: {
         routes() {
-            if (this.$route.matched.length < 2) return [];
-
-            const parentPath =
-                this.$route.matched[this.$route.matched.length - 2].path;
+            const parentIndex = Math.max(this.$route.matched.length - 2, 0);
+            const parentPath = this.$route.matched[parentIndex].path;
 
             return recursiveChildSearch(
                 this.$router.options.routes,
@@ -37,14 +36,14 @@ export default {
             );
         },
         tabs() {
-            return this.routes.map(({ meta }) => ({
+            return this.routes.map(({ meta = {} }) => ({
                 label: meta.label,
                 prop: meta.prop
             }));
         },
         currentTab: {
             get() {
-                return this.$route.meta.prop;
+                return this.$route.meta?.prop;
             },
             set(prop) {
                 const newRoute = this.routes.find(

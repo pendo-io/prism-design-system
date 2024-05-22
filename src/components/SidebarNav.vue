@@ -20,7 +20,7 @@
                 </span>
                 <ul>
                     <li>
-                        <router-link to="/components/button"
+                        <router-link to="/components/buttons"
                             >Button</router-link
                         >
                     </li>

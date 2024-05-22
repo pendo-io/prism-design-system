@@ -14,11 +14,8 @@ const routes = [
         path: '/components/buttons',
         component: () => import('@/content/components/buttons/index.mdx'),
         children: [
-            // {
-            //     path: '',
-            //     redirect: 'specs'
-            // },
             {
+                name: 'ButtonsSpecs',
                 path: 'specs',
                 meta: {
                     prop: 'specs',
@@ -27,6 +24,7 @@ const routes = [
                 component: () => import('@/content/components/buttons/spec.mdx')
             },
             {
+                name: 'ButtonsUsage',
                 path: 'usage',
                 meta: {
                     prop: 'usage',
@@ -36,6 +34,7 @@ const routes = [
                     import('@/content/components/buttons/usageExamples.mdx')
             },
             {
+                name: 'ButtonsProperties',
                 path: 'properties',
                 meta: {
                     prop: 'properties',
@@ -45,6 +44,7 @@ const routes = [
                     import('@/content/components/buttons/properties.mdx')
             },
             {
+                name: 'ButtonsGuidelines',
                 path: 'guidelines',
                 meta: {
                     prop: 'guidelines',
