@@ -54,6 +54,10 @@ const routes = [
                     import('@/content/components/buttons/copyGuidelines.mdx')
             }
         ]
+    },
+    {
+        path: '*',
+        component: () => import('@/views/NotFoundPage.vue')
     }
 ];
 
