@@ -1,5 +1,10 @@
 <template>
-    <pendo-tabs v-if="tabs.length" v-model="currentTab" :tabs="tabs">
+    <pendo-tabs
+        v-if="tabs.length"
+        class="tabs"
+        v-model="currentTab"
+        :tabs="tabs"
+    >
         <router-view />
     </pendo-tabs>
     <router-view v-else />
@@ -55,3 +60,9 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+.tabs {
+    margin-top: 36px;
+}
+</style>
