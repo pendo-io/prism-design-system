@@ -24,9 +24,9 @@ for (const fileName of requireComponent.keys().sort()) {
     if (contentModule.IS_TAB && parentRoute) {
         newRoute.path = path.replace(`${parentPath}/`, '');
         parentRoute.children = parentRoute.children || [];
-        parentRoute.children.push(newRoute);
+        // parentRoute.children.push(newRoute);
     } else {
-        routes.push(newRoute);
+        // routes.push(newRoute);
     }
 }
 

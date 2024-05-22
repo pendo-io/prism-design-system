@@ -1,3 +1,41 @@
+import { ref } from 'vue';
+import { PendoButton } from '@pendo/components';
+
 export const IS_TAB = true;
 
-## Here is spec content!
+## Overview
+
+A button is an essential UI component in most designs, used when a user might need to take the following actions:
+
+-   Submitting content, such as with a form.
+-   Triggering an element to appear on the page, such as a modal or a drawer.
+
+## Button types
+
+<PendoButton label="Button" type="primary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="secondary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="tertiary" />
+&ensp;&ensp;
+<PendoButton label="Button" type="link" />
+&ensp;&ensp;
+<PendoButton label="Button" type="danger" />
+
+## Primary button
+
+Primary buttons are used to highlight the most important, relevant, or encouraged action. There should be only one primary button per button group.
+
+Use Primary buttons for:
+
+-   Calls to action that prompt users to do something you want them to do (such as Sign up).
+-   Constructive actions (such as Submit).
+-   Confirmation (such as Yes, Delete).
+
+### Examples:
+
+The following button is an example of reactivity in MDX, not strictly related to design documentation.
+
+export const count = ref(0);
+
+<PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />

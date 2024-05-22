@@ -9,6 +9,51 @@ const routes = [
     {
         path: '/',
         component: () => import('@/views/HomePage.vue')
+    },
+    {
+        path: '/components/buttons',
+        component: () => import('@/content/components/buttons/index.mdx'),
+        children: [
+            // {
+            //     path: '',
+            //     redirect: 'specs'
+            // },
+            {
+                path: 'specs',
+                meta: {
+                    prop: 'specs',
+                    label: 'Specs'
+                },
+                component: () => import('@/content/components/buttons/spec.mdx')
+            },
+            {
+                path: 'usage',
+                meta: {
+                    prop: 'usage',
+                    label: 'Usage examples'
+                },
+                component: () =>
+                    import('@/content/components/buttons/usageExamples.mdx')
+            },
+            {
+                path: 'properties',
+                meta: {
+                    prop: 'properties',
+                    label: 'Properties'
+                },
+                component: () =>
+                    import('@/content/components/buttons/properties.mdx')
+            },
+            {
+                path: 'guidelines',
+                meta: {
+                    prop: 'guidelines',
+                    label: 'Copy guidelines'
+                },
+                component: () =>
+                    import('@/content/components/buttons/copyGuidelines.mdx')
+            }
+        ]
     }
 ];
 
