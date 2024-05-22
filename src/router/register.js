@@ -57,6 +57,8 @@ function createRoute(key, value) {
         }
     }
 
+    children.sort((a, b) => a.meta.index - b.meta.index);
+
     if (value.component) {
         const selfRoute = {
             name: `${count++}`,
