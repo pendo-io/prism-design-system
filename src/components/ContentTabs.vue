@@ -20,7 +20,7 @@ function recursiveChildSearch(routes, path) {
 }
 
 export default {
-    name: 'ContentHeader',
+    name: 'ContentTabs',
     components: {
         PendoTabs
     },
