@@ -11,6 +11,10 @@ const routes = [
         component: () => import('@/views/HomePage.vue')
     },
     {
+        path: '/getting-started',
+        component: () => import('@/views/HomePage.vue')
+    },
+    {
         path: '/components/buttons',
         component: () => import('@/content/components/buttons/index.mdx'),
         children: [

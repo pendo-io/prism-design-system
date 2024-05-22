@@ -1,51 +1,137 @@
 <template>
     <nav>
-        <img src="@/assets/logo.svg" alt="Pendo Prism Design System" />
-        <div class="search">
-            <pendo-input placeholder="Search">
-                <template #prefix>
-                    <pendo-icon type="search" size="14" />
-                </template>
-            </pendo-input>
+        <div class="header">
+            <router-link to="/">
+                <img src="@/assets/logo.svg" alt="Pendo Prism Design System" />
+            </router-link>
+            <div class="search">
+                <pendo-input placeholder="Search">
+                    <template #prefix>
+                        <pendo-icon type="search" size="14" />
+                    </template>
+                </pendo-input>
+            </div>
+            <hr />
         </div>
-        <hr />
-        <ul>
-            <li>Release Notes</li>
-            <li>About Prism</li>
-            <li><router-link to="/">Getting Started</router-link></li>
-            <li>
-                <span class="trigger">
-                    <pendo-icon type="chevron-down" size="16" />
-                    <span>Components</span>
-                </span>
-                <ul>
-                    <li>
-                        <router-link to="/components/buttons"
-                            >Button</router-link
-                        >
-                    </li>
-                    <li>
-                        <router-link to="/components/input">Input</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/components/icon">Icon</router-link>
-                    </li>
-                </ul>
-            </li>
-            <li>Tokens</li>
-            <li>Patterns</li>
-        </ul>
-        <hr />
-        <ul>
-            <li>For Designers</li>
-        </ul>
-        <p>Documentation v{{ siteVersion }}</p>
-        <p>
-            <a href="https://github.com/pendo-io/components" target="_blank"
-                >Component Library</a
-            >
-            v{{ libVersion }}
-        </p>
+        <div class="main">
+            <ul>
+                <li>Release Notes</li>
+                <li>About Prism</li>
+                <li>
+                    <router-link to="/getting-started"
+                        >Getting Started</router-link
+                    >
+                </li>
+                <li>
+                    <input type="checkbox" id="components" />
+                    <label for="components" class="trigger">
+                        <pendo-icon type="chevron-right" size="16" />
+                        <span>Components</span>
+                    </label>
+                    <ul>
+                        <li>
+                            <router-link to="/components/alerts"
+                                >Alerts</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/components/buttons"
+                                >Buttons</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/components/cards"
+                                >Cards</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/components/collapse"
+                                >Collapse</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/components/color-picker"
+                                >Colour Picker</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/components/date-picker"
+                                >Date picker</router-link
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="tokens" />
+                    <label for="tokens" class="trigger">
+                        <pendo-icon type="chevron-right" size="16" />
+                        <span>Tokens</span>
+                    </label>
+                    <ul>
+                        <li>
+                            <router-link to="/tokens/colors"
+                                >Colors</router-link
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="patterns" />
+                    <label for="patterns" class="trigger">
+                        <pendo-icon type="chevron-right" size="16" />
+                        <span>Patterns</span>
+                    </label>
+                    <ul>
+                        <li>
+                            <router-link to="/patterns/settings-page"
+                                >Settings Page</router-link
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr />
+            <ul>
+                <li>
+                    <input type="checkbox" id="designers" />
+                    <label for="designers" class="trigger">
+                        <pendo-icon type="chevron-right" size="16" />
+                        <span>For Designers</span>
+                    </label>
+                    <ul>
+                        <li>
+                            <router-link to="/designers/process"
+                                >Design Process</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/designers/accessibility"
+                                >Accessibility Guidelines</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/designers/content"
+                                >Content Guidelines</router-link
+                            >
+                        </li>
+                        <li>
+                            <router-link to="/designers/resources"
+                                >Tools / Resources</router-link
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>Documentation v{{ siteVersion }}</p>
+            <p>
+                <a href="https://github.com/pendo-io/components" target="_blank"
+                    >Component Library</a
+                >
+                v{{ libVersion }}
+            </p>
+        </div>
     </nav>
 </template>
 
@@ -71,9 +157,33 @@ export default {
 @import '@/styles/_colors.scss';
 
 nav {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     background-color: #17044a;
     color: white;
+}
+
+.header {
+    padding: 32px 32px 0;
+}
+
+.main {
+    padding: 0 32px;
+    overflow-y: scroll;
+}
+
+.footer {
     padding: 32px;
+    border-top: 1px solid #9a91b6;
+    font-size: 14px;
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 hr {
@@ -85,12 +195,26 @@ ul {
     padding: 0;
 }
 
+input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+
+    &:checked + label .pendo-icon {
+        transform: rotate(90deg);
+    }
+
+    &:checked ~ ul {
+        display: block;
+    }
+}
+
 li {
     margin: 22px 0;
     font-size: 16px;
     font-weight: 600;
 
     ul {
+        display: none;
         padding-left: 24px;
 
         li {
@@ -108,7 +232,7 @@ a {
     color: white;
     text-decoration: none;
 
-    &.router-link-exact-active {
+    &.router-link-active {
         color: white;
         text-decoration: underline;
     }
