@@ -55,9 +55,9 @@ main {
 
 .boop {
     position: absolute;
-    top: -400px;
-    right: -500px;
-    transform: translateZ(-1px);
+    top: -49vh;
+    right: -37vw;
+    transform: translateZ(-1px) scale(2);
 
     img {
         filter: blur(6px);
