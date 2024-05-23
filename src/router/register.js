@@ -79,6 +79,5 @@ function createRoute(key, value) {
 // #############################################################################
 
 const routes = createRoute('', metaTree);
-console.log(routes);
 
 export default routes;
