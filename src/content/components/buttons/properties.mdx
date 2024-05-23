@@ -4,14 +4,42 @@ export const META = {
     label: 'Properties'
 };
 
+import { PendoButton, PendoTag } from '@pendo/components';
+import BadgeButton from './BadgeButton.vue';
+import IconButton from './IconButton.vue';
+
 ## Other Properties
 
 ### Prefix Icon
 
+Include an icon with text to convey an action more clearly, or to differentiate from other buttons in a group. Be wary of overuse, especially on several buttons in succession.
+
+<PendoButton type="secondary" label="Share" prefix-icon="share" />
+
 ### Suffix Icon
+
+Use right icons sparingly to denote for an action that’s best read after the text action, such as with an external link icon or a padlock icon for information about privacy and security. Mostly used on Tertiary buttons, or tertiary link buttons.
+
+<PendoButton type="link" label="Manage In App" suffix-icon="chevron-right" />
 
 ### Icon Only
 
+Icon-only buttons are used for actions that are universal enough to be represented by a standalone icon, such as "expand", "close", and "search". They should be used sparingly
+
+Always pair an icon-only button with a tooltip definition so that the user can understand its purpose when they hover over it. On hover, a tooltip label should appear and the icon's background should be accentuated.
+
+The tooltip shouldn’t be relied upon to communicate meaning. The icon should stand up on its own.
+
+<IconButton />
+
 ### Loader Icon
 
+Use a loading icon for actions that don’t happen instantly. Whilst content is loading, buttons should also be in a disabled state.
+
+<PendoButton label="Save Changes" loading />
+
 ### Tag / Badge
+
+A component used in or on a button to add context to the action, such as a counter in a circle over part of a bell icon to indicate the number of notifications waiting for the user, or an ‘X’ within a button to indicate that the button is removable .
+
+<BadgeButton />

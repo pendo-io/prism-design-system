@@ -4,7 +4,7 @@ export const META = {
     label: 'Specs'
 };
 
-import { PendoButton } from '@pendo/components';
+import { PendoButton, PendoButtonGroup } from '@pendo/components';
 
 ## Overview
 
@@ -112,18 +112,64 @@ Use Destructive Buttons:
 
 ### Standard Button
 
+Use a standard button when there is a single call to action, Most buttons will use this type of button functionality.
+
+<PendoButton label="Manage Pages In App" />
+
 ### Split Action Button
+
+Use a split action button when there are two or more main actions a user can take. (Example: "Manage in App" vs. "Manage in Classic Designer"). Use a split action button in designs select function in the variant options.
+
+<PendoButtonGroup>
+    <PendoButton label="Save to Backlog" />
+    <PendoButton icon="chevron-down" />
+</PendoButtonGroup>
 
 ## Button States
 
-### Focus State
+Hover, click, and `tab` over the following buttons to observe the various focus states.
 
-### Focus Examples
-
-#### Standard Button
-
-#### Split Button
+<PendoButton label="Primary" />
+<PendoButton label="Primary" disabled />
+<br />
+<br />
+<PendoButton label="Secondary" type="secondary" />
+<PendoButton label="Secondary" type="secondary" disabled />
+<br />
+<br />
+<PendoButton label="Tertiary" type="tertiary" />
+<PendoButton label="Tertiary" type="tertiary" disabled />
+<br />
+<br />
+<PendoButton label="Link" type="link" />
+<PendoButton label="Link" type="link" disabled />
+<br />
+<br />
+<PendoButton label="Destructive" type="danger" />
+<PendoButton label="Destructive" type="danger" disabled />
+<br />
+<br />
+<PendoButtonGroup>
+    <PendoButton label="Split" disabled />
+    <PendoButton icon="chevron-down" />
+</PendoButtonGroup>
+&ensp;
+<PendoButtonGroup>
+    <PendoButton label="Split" />
+    <PendoButton icon="chevron-down" disabled />
+</PendoButtonGroup>
 
 ## Button Sizes
 
+Use regular in most cases. For all other sizes, its tpically useful to balance the button size with the need in the UI. For instance,
+
+-   if there is limited space in the UI use a mini button,
+-   or being placed next to a small input, pair with a small button.
+
+<PendoButton label="Regular" />
+<PendoButton label="Small" size="small" />
+<PendoButton label="Mini" size="mini" />
+
 ## UI Mode
+
+In most cases we use buttons in light mode. Select the dark mode variant where you are applying buttons to dark backgrounds such as in the Guide designer or tagging experience. (Example: "Exit")
