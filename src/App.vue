@@ -5,13 +5,13 @@
             <img src="@/assets/separator.svg" alt="separator" />
         </div>
         <main>
+            <router-view class="content" />
             <div class="boop">
                 <img src="@/assets/star-1.svg" alt="star" />
                 <img src="@/assets/star-2.svg" alt="star" />
                 <img src="@/assets/star-3.svg" alt="star" />
                 <img src="@/assets/star-3.svg" alt="star" />
             </div>
-            <router-view class="content" />
         </main>
     </div>
 </template>
@@ -46,6 +46,7 @@ export default {
 main {
     padding: 120px 80px;
     overflow: scroll;
+    perspective: 1px;
 }
 
 [mdxtype='MDXLayout'] {
@@ -54,10 +55,9 @@ main {
 
 .boop {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
+    top: -400px;
+    right: -500px;
+    transform: translateZ(-1px);
 
     img {
         filter: blur(6px);
@@ -65,8 +65,8 @@ main {
 
     img:nth-child(1) {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -27px;
+        right: -35px;
     }
 
     img:nth-child(2) {
