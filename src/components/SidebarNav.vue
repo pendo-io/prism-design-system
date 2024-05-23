@@ -28,38 +28,40 @@
                         <pendo-icon type="chevron-right" size="16" />
                         <span>Components</span>
                     </label>
-                    <ul>
-                        <li>
-                            <router-link to="/components/alerts"
-                                >Alerts</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/components/buttons"
-                                >Buttons</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/components/cards"
-                                >Cards</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/components/collapse"
-                                >Collapse</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/components/color-picker"
-                                >Colour Picker</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/components/date-picker"
-                                >Date picker</router-link
-                            >
-                        </li>
-                    </ul>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <router-link to="/components/alerts"
+                                    >Alerts</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/components/buttons"
+                                    >Buttons</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/components/cards"
+                                    >Cards</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/components/collapse"
+                                    >Collapse</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/components/color-picker"
+                                    >Colour Picker</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/components/date-picker"
+                                    >Date picker</router-link
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <input type="checkbox" id="tokens" />
@@ -67,13 +69,15 @@
                         <pendo-icon type="chevron-right" size="16" />
                         <span>Tokens</span>
                     </label>
-                    <ul>
-                        <li>
-                            <router-link to="/tokens/colors"
-                                >Colors</router-link
-                            >
-                        </li>
-                    </ul>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <router-link to="/tokens/colors"
+                                    >Colors</router-link
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <input type="checkbox" id="patterns" />
@@ -81,13 +85,15 @@
                         <pendo-icon type="chevron-right" size="16" />
                         <span>Patterns</span>
                     </label>
-                    <ul>
-                        <li>
-                            <router-link to="/patterns/settings-page"
-                                >Settings Page</router-link
-                            >
-                        </li>
-                    </ul>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <router-link to="/patterns/settings-page"
+                                    >Settings Page</router-link
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
             <hr />
@@ -98,28 +104,30 @@
                         <pendo-icon type="chevron-right" size="16" />
                         <span>For Designers</span>
                     </label>
-                    <ul>
-                        <li>
-                            <router-link to="/designers/process"
-                                >Design Process</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/designers/accessibility"
-                                >Accessibility Guidelines</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/designers/content"
-                                >Content Guidelines</router-link
-                            >
-                        </li>
-                        <li>
-                            <router-link to="/designers/resources"
-                                >Tools / Resources</router-link
-                            >
-                        </li>
-                    </ul>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <router-link to="/designers/process"
+                                    >Design Process</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/designers/accessibility"
+                                    >Accessibility Guidelines</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/designers/content"
+                                    >Content Guidelines</router-link
+                                >
+                            </li>
+                            <li>
+                                <router-link to="/designers/resources"
+                                    >Tools / Resources</router-link
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -198,13 +206,14 @@ ul {
 input[type='checkbox'] {
     opacity: 0;
     position: absolute;
+    cursor: pointer;
 
-    &:checked + label .pendo-icon {
+    &:checked + .trigger .pendo-icon {
         transform: rotate(90deg);
     }
 
-    &:checked ~ ul {
-        display: block;
+    &:checked ~ .dropdown {
+        grid-template-rows: 1fr;
     }
 }
 
@@ -213,8 +222,14 @@ li {
     font-size: 16px;
     font-weight: 600;
 
+    .dropdown {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+    }
+
     ul {
-        display: none;
+        overflow: hidden;
         padding-left: 24px;
 
         li {
@@ -242,9 +257,11 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 
     .pendo-icon {
         display: inline-block;
+        transition: transform 0.3s ease;
     }
 }
 
