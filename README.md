@@ -171,7 +171,7 @@ The following items were stretch goals for Carrie and Neill during the 25.1 hack
 - [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
 - [ ] More deployment automation:
   - [x] Lookasides deployed for pull requests
-  - [ ] Lookaside links posted in a Github PR comment
+  - [x] Lookaside links posted in a Github PR comment
   - [ ] Automatic deployment of the `main` branch
 - [ ] Content Management System: some editor like [Prose](https://prose.io/) allowing for WYSIWYG editing of site content, with live previews
 

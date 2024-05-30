@@ -97,7 +97,6 @@ jobs:
         paths:
           - dist
 
-
   deploy-lookaside-gcs:
     executor: node
     steps:
@@ -109,6 +108,17 @@ jobs:
     - run:
         name: deploy
         command: node scripts/lookaside.mjs --keyFilename=gcloud-service-key.json --branch ${CIRCLE_BRANCH}
+
+  pr-comment:
+    executor: node
+    steps:
+    - <<: *attach_workspace
+    - run:
+        name: PR comment
+        command: |
+          if [ "${CIRCLE_PULL_REQUEST##*/}" != "" ]; then
+            node scripts/pr-comment.mjs
+          fi
 
 # -------------
 #   Workflows
@@ -133,4 +143,10 @@ workflows:
         requires:
         - setup
         - build
+    - pr-comment:
+        <<: *dev
+        name: pr-comment
+        context: core-dev
+        requires:
+        - deploy-lookaside-gcs
 
