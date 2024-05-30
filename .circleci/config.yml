@@ -25,7 +25,7 @@ dev: &dev
   filters:
     branches:
       ignore:
-      - master
+      - main
 
 # -------------
 #   Executors
@@ -108,7 +108,7 @@ jobs:
           echo $GCLOUD_SERVICE_KEY > "gcloud-service-key.json"
     - run:
         name: deploy
-        command: node scripts/lookaside --keyFilename=gcloud-service-key.json --branch ${CIRCLE_BRANCH}
+        command: node scripts/lookaside.mjs --keyFilename=gcloud-service-key.json --branch ${CIRCLE_BRANCH}
 
 # -------------
 #   Workflows
