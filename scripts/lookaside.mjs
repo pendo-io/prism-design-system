@@ -35,7 +35,6 @@ async function run() {
         const uploads = files.map((file) => {
             return bucket.upload(file.path, {
                 destination: file.destination,
-                public: true,
                 gzip: true,
                 resumable: false,
                 metadata: {
