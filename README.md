@@ -145,7 +145,11 @@ Blah blah documentation content
 
 Make a pull request to the `main` branch of the repository and follow Pendo's standard review process.
 
-No lookaside automation has been set up for pull requests at this time: testing is only local.
+A lookaside will be built and deployed at a Google Cloud URL with the following form:
+
+```
+https://storage.googleapis.com/prism-design-system/{{ BRANCH_NAME }}/index.html#/
+```
 
 Once a change has been merged into the `main` branch, take the following steps to deploy them to the production URL:
 
@@ -166,7 +170,8 @@ The following items were stretch goals for Carrie and Neill during the 25.1 hack
 - [ ] Auto-expand the sidebar sections to the currently-active route
 - [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
 - [ ] More deployment automation:
-  - [ ] Lookasides deployed for pull requests
+  - [x] Lookasides deployed for pull requests
+  - [ ] Lookaside links posted in a Github PR comment
   - [ ] Automatic deployment of the `main` branch
 - [ ] Content Management System: some editor like [Prose](https://prose.io/) allowing for WYSIWYG editing of site content, with live previews
 
