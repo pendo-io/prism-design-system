@@ -1,0 +1,56 @@
+name: GCS Lookaside
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+      - name: Prepare npmrc
+        run: envsubst < ci.npmrc > .npmrc
+        env:
+          ARTIFACTORY_TOKEN: '${{ secrets.ARTIFACTORY_TOKEN }}'
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+      - name: Build project
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist
+
+  # Deployment job
+  deploy:
+    environment:
+      name: google-cloud-storage
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+      - name: Add service key
+        run: echo ${{ secrets.GCLOUD_SERVICE_KEY }} > "gcloud-service-key.json"
+      - name: Deploy to Google Cloud Storage
+        id: deployment
+        run: node scripts/lookaside.mjs --keyFilename=gcloud-service-key.json --branch ${{ github.ref_name }}

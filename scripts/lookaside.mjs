@@ -45,6 +45,7 @@ async function run() {
 
         await Promise.all(uploads);
         console.log(logSymbols.success, 'Lookaside deployed');
+        process.env.GITHUB_OUTPUT = `page_url=https://storage.googleapis.com/prism-design-system/${branch}/index.html`;
     } catch (error) {
         console.log(logSymbols.error, error);
         process.exit(1);

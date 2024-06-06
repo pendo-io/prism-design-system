@@ -135,18 +135,18 @@ workflows:
         name: build
         requires:
         - setup
-    - deploy-lookaside-gcs:
-        <<: *dev
-        name: deploy-lookaside-gcs
-        context:
-        - core-dev
-        requires:
-        - setup
-        - build
+    # - deploy-lookaside-gcs:
+    #     <<: *dev
+    #     name: deploy-lookaside-gcs
+    #     context:
+    #     - core-dev
+    #     requires:
+    #     - setup
+    #     - build
     - pr-comment:
         <<: *dev
         name: pr-comment
         context: core-dev
-        requires:
-        - deploy-lookaside-gcs
+        # requires:
+        # - deploy-lookaside-gcs
 
