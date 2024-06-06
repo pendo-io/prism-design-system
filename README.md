@@ -151,15 +151,18 @@ A lookaside will be built and deployed at a Google Cloud URL with the following 
 https://storage.googleapis.com/prism-design-system/{{ BRANCH_NAME }}/index.html#/
 ```
 
-Once a change has been merged into the `main` branch, take the following steps to deploy them to the production URL:
+You will also be given a link to the deployment at the bottom of the PR discussion:
 
-1. Click on the "Actions" tab of the GitHub repository.
-2. Click on "Build and deploy website to GitHub Pages" in the left-hand sidebar.
-3. Click on the "Run workflow" dropdown in the table.
-4. Ensure that the `main` branch is selected as the branch from which to run the workflow.
-5. Click "Run workflow".
+![screenshot of GitHub deployment message on a pull request](./docs/deployment.png)
 
-Within a minute or two, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
+Merges to `main` are protected:
+
+- The branch needs an open pull request
+- The `build` job needs to pass on that branch
+
+Once both of those conditions are met, merging can take place in either the Github UI, or on the command line.
+
+Merges to the `main` branch automatically trigger the site's deployment to Github Pages. Within a minute or two, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
 
 ## To Do
 
@@ -169,10 +172,10 @@ The following items were stretch goals for Carrie and Neill during the 25.1 hack
 - [ ] Automatic generation of links in the sidebar based on URL routes
 - [ ] Auto-expand the sidebar sections to the currently-active route
 - [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
-- [ ] More deployment automation:
+- [x] More deployment automation:
   - [x] Lookasides deployed for pull requests
   - [x] Lookaside links posted in a Github PR comment
-  - [ ] Automatic deployment of the `main` branch
+  - [x] Automatic deployment of the `main` branch
 - [ ] Content Management System: some editor like [Prose](https://prose.io/) allowing for WYSIWYG editing of site content, with live previews
 
 Most importantly, **the site needs much of the documentation currently in Figma migrated into it!** If you see any pages that need updating (or creation), don't hesitate to give it a shot!
