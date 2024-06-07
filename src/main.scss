@@ -22,26 +22,46 @@ h6 {
 [mdxtype='MDXLayout'] {
     h1 {
         font-size: 46px;
+        margin: 16px 0;
     }
+
     h2 {
-        font-size: 36px;
-    }
-    h3 {
         font-size: 22px;
+        margin-top: 64px;
     }
+
+    h3 {
+        font-size: 20px;
+        margin-top: 64px;
+    }
+
     h4 {
         font-size: 18px;
     }
+
     h5 {
         font-size: 16px;
     }
+
     h6 {
         font-size: 14px;
     }
 
+    p {
+        line-height: 135%;
+        margin: 1.5em 0;
+    }
+
     [parentname='blockquote'] {
         font-size: 18px;
+    }
+
+    ul {
         line-height: 135%;
+
+        > li {
+            margin: 0.2em 0;
+        }
     }
 }
 
