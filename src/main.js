@@ -6,15 +6,30 @@ import './main.scss';
 
 Vue.config.productionTip = false;
 
+/**
+ * Use this object *only* to map standard Markdown elements to custom Vue components.
+ *
+ * Doing so allows writers to, for example, use the blockquote `>` syntax to render
+ * a different HTML tag that is more semantically relevant.
+ *
+ * In all other cases, prefer explicit component imports into the MDX file.
+ */
 const components = {
-    blockquote: (props) => ({
-        render(h) {
-            return h('strong', props);
+    blockquote: () => ({
+        render() {
+            // <p parentname="blockquote">...</p>
+            return this.$slots.default;
         }
     })
 };
 
 new Vue({
-    render: (h) => h(MDXProvider, { props: { components } }, [h(App)]),
+    render() {
+        return (
+            <MDXProvider components={components}>
+                <App />
+            </MDXProvider>
+        );
+    },
     router
 }).$mount('#app');
