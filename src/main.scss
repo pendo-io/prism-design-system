@@ -19,6 +19,27 @@ h6 {
     font-family: Sora, Helvetica, Arial, sans-serif;
 }
 
+[mdxtype='MDXLayout'] {
+    h1 {
+        font-size: 46px;
+    }
+    h2 {
+        font-size: 36px;
+    }
+    h3 {
+        font-size: 22px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    h6 {
+        font-size: 14px;
+    }
+}
+
 /*
  * Targeting specifically images within the main MDX body.
  * There's certainly a better way to do this by passing MDX components,
