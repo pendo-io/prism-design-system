@@ -17,11 +17,13 @@ Vue.config.productionTip = false;
 const components = {
     blockquote: () => ({
         render() {
-            // <p parentname="blockquote">...</p>
+            delete this.$slots.default[0].data.attrs.parentName;
+            this.$slots.default[0].data.class = 'mdx-blurb';
+
             return this.$slots.default;
         }
     }),
-    // shallow-copy props because MDXProvider shares the instance to parents
+    // shallow-copy props because MDXProvider shares the parameter instance to parents
     img: ({ ...props }) => ({
         render() {
             // Pull everything except `attrs` into a child object, domProps

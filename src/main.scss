@@ -52,17 +52,16 @@ h6 {
         margin: 1.5em 0;
     }
 
-    /* TODO: Find a way to customize this selector to something more semantically relevant */
-    [parentname='blockquote'] {
-        font-size: 18px;
-    }
-
     ul {
         line-height: 135%;
 
         > li {
             margin: 0.2em 0;
         }
+    }
+
+    .mdx-blurb {
+        font-size: 18px;
     }
 
     .mdx-img {
