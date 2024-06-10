@@ -177,7 +177,7 @@ nav {
 
 .main {
     padding: 0 32px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .footer {

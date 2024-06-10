@@ -45,7 +45,7 @@ export default {
 
 main {
     padding: 120px 80px;
-    overflow: scroll;
+    overflow: auto;
     perspective: 1px;
 }
 
