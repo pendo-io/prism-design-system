@@ -52,6 +52,7 @@ h6 {
         margin: 1.5em 0;
     }
 
+    /* TODO: Find a way to customize this selector to something more semantically relevant */
     [parentname='blockquote'] {
         font-size: 18px;
     }
@@ -63,16 +64,11 @@ h6 {
             margin: 0.2em 0;
         }
     }
-}
 
-/*
- * Targeting specifically images within the main MDX body.
- * There's certainly a better way to do this by passing MDX components,
- * something to research in the future.
- */
-[mdxtype='MDXLayout'] > p > img {
-    max-width: 95%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-    display: block;
+    .mdx-img {
+        max-width: 95%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        display: block;
+    }
 }

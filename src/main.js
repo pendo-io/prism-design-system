@@ -20,6 +20,17 @@ const components = {
             // <p parentname="blockquote">...</p>
             return this.$slots.default;
         }
+    }),
+    // shallow-copy props because MDXProvider shares the instance to parents
+    img: ({ ...props }) => ({
+        render() {
+            // Pull everything except `attrs` into a child object, domProps
+            const { attrs, ...domProps } = props;
+            const data = { attrs, domProps };
+            const elProps = { class: 'mdx-img', ...props, ...data };
+
+            return <img {...elProps} />;
+        }
     })
 };
 
