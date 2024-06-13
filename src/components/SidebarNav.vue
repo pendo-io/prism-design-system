@@ -18,9 +18,9 @@
                 <li>Release Notes</li>
                 <li>About Prism</li>
                 <li>
-                    <router-link to="/getting-started"
-                        >Getting Started</router-link
-                    >
+                    <router-link to="/getting-started">
+                        Getting Started
+                    </router-link>
                 </li>
                 <li>
                     <input type="checkbox" id="components" />
@@ -31,34 +31,34 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <router-link to="/components/alerts"
-                                    >Alerts</router-link
-                                >
+                                <router-link to="/components/alerts">
+                                    Alerts
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/components/buttons"
-                                    >Buttons</router-link
-                                >
+                                <router-link to="/components/buttons">
+                                    Buttons
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/components/cards"
-                                    >Cards</router-link
-                                >
+                                <router-link to="/components/cards">
+                                    Cards
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/components/collapse"
-                                    >Collapse</router-link
-                                >
+                                <router-link to="/components/collapse">
+                                    Collapse
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/components/color-picker"
-                                    >Colour Picker</router-link
-                                >
+                                <router-link to="/components/color-picker">
+                                    Colour Picker
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/components/date-picker"
-                                    >Date picker</router-link
-                                >
+                                <router-link to="/components/date-picker">
+                                    Date picker
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -72,9 +72,9 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <router-link to="/tokens/colors"
-                                    >Colors</router-link
-                                >
+                                <router-link to="/tokens/colors">
+                                    Colors
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -88,9 +88,9 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <router-link to="/patterns/settings-page"
-                                    >Settings Page</router-link
-                                >
+                                <router-link to="/patterns/settings-page">
+                                    Settings Page
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -107,24 +107,24 @@
                     <div class="dropdown">
                         <ul>
                             <li>
-                                <router-link to="/designers/process"
-                                    >Design Process</router-link
-                                >
+                                <router-link to="/designers/process">
+                                    Design Process
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/designers/accessibility"
-                                    >Accessibility Guidelines</router-link
-                                >
+                                <router-link to="/designers/accessibility">
+                                    Accessibility Guidelines
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/designers/content"
-                                    >Content Guidelines</router-link
-                                >
+                                <router-link to="/designers/content">
+                                    Content Guidelines
+                                </router-link>
                             </li>
                             <li>
-                                <router-link to="/designers/resources"
-                                    >Tools / Resources</router-link
-                                >
+                                <router-link to="/designers/resources">
+                                    Tools / Resources
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -134,9 +134,11 @@
         <div class="footer">
             <p>Documentation v{{ siteVersion }}</p>
             <p>
-                <a href="https://github.com/pendo-io/components" target="_blank"
-                    >Component Library</a
-                >
+                <a
+                    href="https://github.com/pendo-io/components"
+                    target="_blank">
+                    Component Library
+                </a>
                 v{{ libVersion }}
             </p>
         </div>
