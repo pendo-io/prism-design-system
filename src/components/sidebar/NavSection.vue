@@ -1,18 +1,18 @@
 <template>
     <li>
         <template v-if="items.length">
-            <input
-                type="checkbox"
-                :id="id" />
-            <label
-                :for="id"
-                class="trigger">
+            <div
+                class="trigger"
+                :class="{ expanded }"
+                @click="$emit('click')">
                 <pendo-icon
                     type="chevron-right"
                     size="16" />
                 <span>{{ title }}</span>
-            </label>
-            <div class="dropdown">
+            </div>
+            <div
+                class="dropdown"
+                :class="{ expanded }">
                 <ul>
                     <li
                         v-for="item in items"
@@ -66,6 +66,10 @@ export default {
         items: {
             type: Array,
             default: () => []
+        },
+        expanded: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -91,6 +95,10 @@ li {
         display: grid;
         grid-template-rows: 0fr;
         transition: grid-template-rows 0.3s ease;
+
+        &.expanded {
+            grid-template-rows: 1fr;
+        }
     }
 
     ul {
@@ -118,20 +126,6 @@ a {
     }
 }
 
-input[type='checkbox'] {
-    opacity: 0;
-    position: absolute;
-    cursor: pointer;
-
-    &:checked + .trigger .pendo-icon {
-        transform: rotate(90deg);
-    }
-
-    &:checked ~ .dropdown {
-        grid-template-rows: 1fr;
-    }
-}
-
 .trigger {
     display: flex;
     align-items: center;
@@ -141,6 +135,10 @@ input[type='checkbox'] {
     .pendo-icon {
         display: inline-block;
         transition: transform 0.3s ease;
+    }
+
+    &.expanded .pendo-icon {
+        transform: rotate(90deg);
     }
 }
 </style>

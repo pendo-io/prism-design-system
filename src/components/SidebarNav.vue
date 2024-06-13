@@ -25,7 +25,11 @@
                     <nav-section
                         v-if="item.title"
                         v-bind="item"
-                        :key="item.title" />
+                        :key="item.title"
+                        :expanded="expandState[index]"
+                        @click="
+                            $set(expandState, index, !expandState[index])
+                        " />
                     <hr
                         v-else
                         :key="index" />
@@ -99,10 +103,25 @@ export default {
         return {
             siteVersion: require('@/../package.json').version,
             libVersion: require('@pendo/components/package.json').version,
-            search: ''
+            search: '',
+            expandState: Array.from({ length: NAV_ITEMS.length }, () => false),
+            expandStateCache: []
         };
     },
+    watch: {
+        hasSearch(value) {
+            if (value) {
+                this.expandStateCache = Array.from(this.expandState);
+                this.expandState.fill(true);
+            } else {
+                this.expandState = this.expandStateCache;
+            }
+        }
+    },
     computed: {
+        hasSearch() {
+            return !!this.search.trim();
+        },
         filteredItems() {
             const search = this.search.trim().toLowerCase();
             if (!search) {
@@ -118,6 +137,7 @@ export default {
                         )
                     };
                 }
+
                 return element;
             });
 
