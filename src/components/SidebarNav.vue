@@ -7,7 +7,9 @@
                     alt="Pendo Prism Design System" />
             </router-link>
             <div class="search">
-                <pendo-input placeholder="Search">
+                <pendo-input
+                    v-model="search"
+                    placeholder="Search">
                     <template #prefix>
                         <pendo-icon
                             type="search"
@@ -19,7 +21,7 @@
         </div>
         <div class="main">
             <ul>
-                <template v-for="(item, index) in NAV_ITEMS">
+                <template v-for="(item, index) in filteredItems">
                     <nav-section
                         v-if="item.title"
                         v-bind="item"
@@ -36,8 +38,8 @@
                 <a
                     href="https://github.com/pendo-io/components"
                     target="_blank">
-                    Component Library
-                </a>
+                    Component Library</a
+                >
                 v{{ libVersion }}
             </p>
         </div>
@@ -97,8 +99,52 @@ export default {
         return {
             siteVersion: require('@/../package.json').version,
             libVersion: require('@pendo/components/package.json').version,
-            NAV_ITEMS
+            search: ''
         };
+    },
+    computed: {
+        filteredItems() {
+            const search = this.search.trim().toLowerCase();
+            if (!search) {
+                return NAV_ITEMS;
+            }
+
+            const filteredSubItems = NAV_ITEMS.map((element) => {
+                if (element.items) {
+                    return {
+                        ...element,
+                        items: element.items.filter((item) =>
+                            item.title.toLowerCase().includes(search)
+                        )
+                    };
+                }
+                return element;
+            });
+
+            const filteredItems = [];
+            let hrFlag = true;
+
+            for (const item of filteredSubItems) {
+                if (item.items?.length) {
+                    filteredItems.push(item);
+                    hrFlag = false;
+                } else if (item.title) {
+                    if (item.title.toLowerCase().includes(search)) {
+                        filteredItems.push(item);
+                        hrFlag = false;
+                    }
+                } else if (!hrFlag) {
+                    filteredItems.push(item);
+                    hrFlag = true;
+                }
+            }
+
+            if (filteredItems.length && hrFlag) {
+                filteredItems.pop();
+            }
+
+            return filteredItems;
+        }
     }
 };
 </script>
@@ -132,6 +178,7 @@ nav {
     }
 
     a {
+        color: white;
         text-decoration: underline;
     }
 }
