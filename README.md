@@ -168,7 +168,9 @@ Merges to the `main` branch automatically trigger the site's deployment to Githu
 
 The following items were stretch goals for Carrie and Neill during the 25.1 hackathon that were not completed:
 
-- [ ] Implement the search bar functionality on the homepage and sidebar
+- [ ] Flesh out the homepage with search bar and links to top-level pages. Figma designs for the homepage are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1105-7744&t=4Ieo0YmZOyIwBtwZ-4).
+  This unit of work won't make sense to complete until there is content in the top-level pages (such as "About Prism", "Product design principles", etc).
+- [x] Implement the search bar functionality on the sidebar
 - [ ] Automatic generation of links in the sidebar based on URL routes
 - [ ] Auto-expand the sidebar sections to the currently-active route
 - [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
