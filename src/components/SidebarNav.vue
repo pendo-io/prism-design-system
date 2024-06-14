@@ -157,6 +157,20 @@ export default {
         }
     },
     watch: {
+        '$route.path': {
+            handler(value) {
+                NAV_ITEMS.forEach((category, i) => {
+                    const hasRouteMatch = category.items?.some((item) =>
+                        value.startsWith(item.path)
+                    );
+
+                    if (hasRouteMatch) {
+                        this.$set(this.expandState, i, true);
+                    }
+                });
+            },
+            immediate: true
+        },
         hasSearch(value) {
             if (value) {
                 this.expandStateCache = Array.from(this.expandState);
