@@ -2,7 +2,7 @@
 
 > Documentation site for Pendo's design system, Prism. Live on [GitHub Pages](https://pendo-io.github.io/prism-design-system).
 
-![deployment workflow status](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml/badge.svg)
+[![deployment workflow status](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml/badge.svg)](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml)
 
 ## Project setup
 
@@ -172,24 +172,12 @@ You will also be given a link to the deployment at the bottom of the PR discussi
 >
 > Once both of those conditions are met, merging can take place in either the Github UI, or on the command line.
 
- Within a minute or two after merging into the `main` branch, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
+Within a minute or two after merging into the `main` branch, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
 
 ## To Do
 
 The best way to contribute is to **migrate documentation from Figma into the site!** If you see any pages that need updating (or creation), don't hesitate to give it a shot.
 
-Additionally, the following items were stretch goals for Carrie and Neill during the 25.1 hackathon that were not completed:
+For technical, engineering-related tasks, please refer to the [Github Project](https://github.com/orgs/pendo-io/projects/4) for a list of work to be done.
 
-- [ ] Flesh out the homepage with search bar and links to top-level pages. Figma designs for the homepage are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1105-7744&t=4Ieo0YmZOyIwBtwZ-4).
-
-  This unit of work won't make sense to complete until there is content in the top-level pages (such as "About Prism", "Product design principles", etc).
-
-- [x] Implement the search bar functionality on the sidebar
-- [ ] Automatic generation of links in the sidebar based on URL routes
-- [ ] Auto-expand the sidebar sections to the currently-active route
-- [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
-- [x] More deployment automation:
-  - [x] Lookasides deployed for pull requests
-  - [x] Lookaside links posted in a Github PR comment
-  - [x] Automatic deployment of the `main` branch
-- [ ] Content Management System: some editor like [Prose](https://prose.io/) allowing for WYSIWYG editing of site content, with live previews
+If you notice a bug in the live site and aren't sure how to address it, feel free to [create an issue](https://github.com/pendo-io/prism-design-system/issues) here on Github, and it will be addressed as soon as possible!
