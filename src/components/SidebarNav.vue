@@ -108,16 +108,6 @@ export default {
             expandStateCache: []
         };
     },
-    watch: {
-        hasSearch(value) {
-            if (value) {
-                this.expandStateCache = Array.from(this.expandState);
-                this.expandState.fill(true);
-            } else {
-                this.expandState = this.expandStateCache;
-            }
-        }
-    },
     computed: {
         hasSearch() {
             return !!this.search.trim();
@@ -164,6 +154,16 @@ export default {
             }
 
             return filteredItems;
+        }
+    },
+    watch: {
+        hasSearch(value) {
+            if (value) {
+                this.expandStateCache = Array.from(this.expandState);
+                this.expandState.fill(true);
+            } else {
+                this.expandState = this.expandStateCache;
+            }
         }
     }
 };

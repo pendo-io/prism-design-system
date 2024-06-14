@@ -1,10 +1,9 @@
 <template>
     <pendo-tabs
         v-if="tabs.length"
-        class="tabs"
         v-model="currentTab"
-        :tabs="tabs"
-    >
+        class="tabs"
+        :tabs="tabs">
         <router-view />
     </pendo-tabs>
     <router-view v-else />
