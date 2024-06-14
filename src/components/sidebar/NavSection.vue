@@ -71,11 +71,6 @@ export default {
             type: Boolean,
             default: false
         }
-    },
-    computed: {
-        id() {
-            return this.title.toLowerCase().replace(/\s+/g, '-');
-        }
     }
 };
 </script>
