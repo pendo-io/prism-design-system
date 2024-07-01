@@ -15,6 +15,10 @@ const routes = [
         component: () => import('@/views/HomePage.vue')
     },
     {
+        path: '/design-principles',
+        component: () => import('@/views/Principles.vue')
+    },
+    {
         path: '*',
         component: () => import('@/views/NotFoundPage.vue')
     }

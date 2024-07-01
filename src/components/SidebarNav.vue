@@ -23,6 +23,11 @@
                     >
                 </li>
                 <li>
+                    <router-link to="/design-principles"
+                        >Design Principles Toolkit</router-link
+                    >
+                </li>
+                <li>
                     <input type="checkbox" id="components" />
                     <label for="components" class="trigger">
                         <pendo-icon type="chevron-right" size="16" />
