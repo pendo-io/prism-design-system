@@ -2,9 +2,16 @@
 
 > Documentation site for Pendo's design system, Prism. Live on [GitHub Pages](https://pendo-io.github.io/prism-design-system).
 
-![deployment workflow status](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml/badge.svg)
+[![deployment workflow status](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml/badge.svg)](https://github.com/pendo-io/prism-design-system/actions/workflows/publish.yml)
 
 ## Project setup
+
+> [!TIP]
+> **Just making a small change?** Try editing [directly in Github](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)! You won't need to clone the repository or set up a local development environment.
+>
+> See the linked Github documentation for how to edit! Be sure to **create a new branch** and pull request so that your changes can be reviewed.
+
+*For engineers*:
 
 To run the site locally, you must have NodeJS and NPM installed.
 
@@ -49,11 +56,12 @@ For example, a file called `icons.mdx` in the directory `src/content/foundations
 There are a couple of exceptions:
 
 - If the file is named `index.mdx` specifically, it will be dropped from the URL: `src/content/components/buttons/index.mdx` is rendered at a URL like `http://localhost:8080/prism-design-system/components/buttons`.
-- A file with a `META.tab` field set will only be rendered in a _tab_ (not a standalone page). See the "Tabs" section of the README for details.
+- A file with a `META.tab` field set will only be rendered in a _tab_ (not a standalone page). See the ["Tabs" section of the README](#tabs) for details.
 
 ### Sidebar Navigation
 
-**The sidebar is *not* currently auto-generated**. After creating new files, the URLs will be valid, but the links need to be manually added to `src/components/SidebarNav.vue`. Simply copy-pasting existing links and sections within that file's `template` section should be sufficient. No adjustments to the `script` or `style` should be necessary.
+> [!IMPORTANT]
+> **The sidebar is *not* currently auto-generated**. After creating new files, the URLs will be valid, but the links need to be manually added to `src/components/SidebarNav.vue`, in the `NAV_ITEMS` array. Simply copy-pasting existing links and sections in that variable should be sufficient.
 
 ### MDX Content
 
@@ -63,7 +71,7 @@ Additionally, MDX allows you to **import** Component Library components and disp
 
 For example, to render a Pendo Button in a MDX file:
 
-```
+```mdx
 import { PendoButton } from '@pendo/components';
 
 ## Overview
@@ -86,7 +94,7 @@ The syntax to accomplish this in JSX is a bit different from Vue:
 
 A small example of a button whose label is incremented on each click follows:
 
-```
+```mdx
 import { ref } from 'vue';
 import { PendoButton } from '@pendo/components';
 
@@ -97,7 +105,8 @@ export const count = ref(0);
 <PendoButton label={`Count: ${count.value}`} onClick={() => count.value++} />
 ```
 
-**Documentation with heavy logic should be the exception, rather than the rule**. Use the above syntax only when absolutely necessary, and look for ways to simplify examples to be purely visual. The purpose of this documentation is **not** to demonstrate full-fledged application snippets: look to Storybook for those examples.
+> [!CAUTION]
+> **Documentation with heavy logic should be the exception, rather than the rule**. Use the above syntax only when absolutely necessary, and look for ways to simplify examples to be purely visual. The purpose of this documentation is **not** to demonstrate full-fledged application snippets: look to Storybook for those examples.
 
 ### Tabs
 
@@ -151,28 +160,24 @@ A lookaside will be built and deployed at a Google Cloud URL with the following 
 https://storage.googleapis.com/prism-design-system/{{ BRANCH_NAME }}/index.html#/
 ```
 
-Once a change has been merged into the `main` branch, take the following steps to deploy them to the production URL:
+You will also be given a link to the deployment at the bottom of the PR discussion:
 
-1. Click on the "Actions" tab of the GitHub repository.
-2. Click on "Build and deploy website to GitHub Pages" in the left-hand sidebar.
-3. Click on the "Run workflow" dropdown in the table.
-4. Ensure that the `main` branch is selected as the branch from which to run the workflow.
-5. Click "Run workflow".
+![screenshot of GitHub deployment message on a pull request](./docs/deployment.png)
 
-Within a minute or two, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
+> [!WARNING]
+> Merges to the `main` branch **automatically trigger the site's deployment** to Github Pages. Therefore, a handful of conditions are enforced on branches before they can merge into `main`:
+>
+> - The branch needs an open pull request
+> - The `build` job needs to pass on that branch
+>
+> Once both of those conditions are met, merging can take place in either the Github UI, or on the command line.
+
+Within a minute or two after merging into the `main` branch, the latest changes should be visible at `https://pendo-io.github.io/prism-design-system`.
 
 ## To Do
 
-The following items were stretch goals for Carrie and Neill during the 25.1 hackathon that were not completed:
+The best way to contribute is to **migrate documentation from Figma into the site!** If you see any pages that need updating (or creation), don't hesitate to give it a shot.
 
-- [ ] Implement the search bar functionality on the homepage and sidebar
-- [ ] Automatic generation of links in the sidebar based on URL routes
-- [ ] Auto-expand the sidebar sections to the currently-active route
-- [ ] Add a right-hand sidebar with the table of contents for the current page. Clicking on the entries links to the relevant Markdown heading. Figma designs for this sidebar are [here](https://www.figma.com/design/VvIdJrQwAiip94MOReeghV/%F0%9F%8C%88-2024-Prism-Site?node-id=1106-7755&t=hdnic9Lg9Eg7iv8S-0).
-- [ ] More deployment automation:
-  - [x] Lookasides deployed for pull requests
-  - [x] Lookaside links posted in a Github PR comment
-  - [ ] Automatic deployment of the `main` branch
-- [ ] Content Management System: some editor like [Prose](https://prose.io/) allowing for WYSIWYG editing of site content, with live previews
+For technical, engineering-related tasks, please refer to the [Github Project](https://github.com/orgs/pendo-io/projects/4) for a list of work to be done.
 
-Most importantly, **the site needs much of the documentation currently in Figma migrated into it!** If you see any pages that need updating (or creation), don't hesitate to give it a shot!
+If you notice a bug in the live site and aren't sure how to address it, feel free to [create an issue](https://github.com/pendo-io/prism-design-system/issues) here on Github, and it will be addressed as soon as possible!

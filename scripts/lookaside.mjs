@@ -1,6 +1,7 @@
 import { Storage } from '@google-cloud/storage';
 import path from 'node:path';
 import fs from 'node:fs';
+import os from 'node:os';
 import read from 'fs-readdir-recursive';
 import minimist from 'minimist';
 import logSymbols from 'log-symbols';
@@ -44,7 +45,12 @@ async function run() {
         });
 
         await Promise.all(uploads);
-        console.log(logSymbols.success, 'Lookaside deployed');
+
+        const url = `https://storage.googleapis.com/prism-design-system/${branch}/index.html`;
+        const output = process.env['GITHUB_OUTPUT'];
+
+        fs.appendFileSync(output, `page_url=${url}${os.EOL}`);
+        console.log(logSymbols.success, `Lookaside deployed at ${url}`);
     } catch (error) {
         console.log(logSymbols.error, error);
         process.exit(1);

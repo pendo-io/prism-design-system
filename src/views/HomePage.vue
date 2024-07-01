@@ -6,28 +6,16 @@
             foundation, allowing us to design, collaborate, and build cleaner,
             faster, and better products.
         </p>
-        <div class="search">
-            <pendo-input
-                placeholder="Search for a component or token"
-                width="420px"
-            >
-                <template #prefix>
-                    <pendo-icon type="search" size="14" />
-                </template>
-            </pendo-input>
-        </div>
+        <p>
+            Search for a component or token in the left navigation to get
+            started!
+        </p>
     </div>
 </template>
 
 <script>
-import { PendoInput, PendoIcon } from '@pendo/components';
-
 export default {
-    name: 'HomePage',
-    components: {
-        PendoIcon,
-        PendoInput
-    }
+    name: 'HomePage'
 };
 </script>
 

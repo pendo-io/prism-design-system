@@ -18,12 +18,13 @@
         "@babel/core": "^7.12.16",
         "@babel/eslint-parser": "^7.12.16",
         "@google-cloud/storage": "^7.11.1",
+        "@mdx-js/vue": "^1.6.22",
         "@mdx-js/vue-loader": "^1.6.22",
-        "@octokit/rest": "^20.1.1",
         "@vue/cli-plugin-babel": "~5.0.0",
         "@vue/cli-plugin-eslint": "~5.0.0",
         "@vue/cli-service": "~5.0.0",
         "eslint": "^7.32.0",
+        "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-vue": "^8.0.3",
         "fs-readdir-recursive": "^1.1.0",
         "log-symbols": "^6.0.0",
@@ -38,13 +39,36 @@
             "node": true
         },
         "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
+            "eslint:recommended",
+            "plugin:vue/recommended",
+            "prettier"
         ],
         "parserOptions": {
             "parser": "@babel/eslint-parser"
         },
-        "rules": {}
+        "rules": {
+            "vue/no-undef-components": [
+                "error",
+                {
+                    "ignorePatterns": [
+                        "router-view",
+                        "router-link"
+                    ]
+                }
+            ],
+            "vue/no-undef-properties": "error",
+            "vue/no-unused-properties": [
+                "warn",
+                {
+                    "groups": [
+                        "props",
+                        "data",
+                        "computed",
+                        "methods"
+                    ]
+                }
+            ]
+        }
     },
     "browserslist": [
         "> 1%",
