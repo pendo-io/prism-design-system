@@ -58,6 +58,7 @@ const NAV_ITEMS = [
     { title: 'Release Notes' },
     { title: 'About Prism' },
     { title: 'Getting Started', path: '/getting-started' },
+    { title: 'Design Principles Toolkit', path: '/design-principles' },
     {
         title: 'Components',
         items: [
